@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriSetu Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#27AE60",
+              "background-light": "#F2F2F2",
+              "background-dark": "#152012",
+              "text-primary-light": "#333333",
+              "text-primary-dark": "#E0E0E0",
+              "text-secondary-light": "#828282",
+              "text-secondary-dark": "#BDBDBD",
+              "card-light": "#FFFFFF",
+              "card-dark": "#1F2923",
+              "accent-yellow": "#F2C94C",
+              "accent-blue": "#2F80ED",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.5rem",
+              "lg": "0.75rem",
+              "xl": "1rem",
+              "full": "9999px",
+            },
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Main Content -->
+<main class="flex-1 pb-24">
+<!-- Header -->
+<div class="flex flex-col gap-2 bg-background-light dark:bg-background-dark p-4 pb-2 sticky top-0 z-10">
+<div class="flex h-12 items-center justify-between">
+<div class="flex size-12 shrink-0 items-center">
+<div class="aspect-square size-10 rounded-full bg-cover bg-center bg-no-repeat" data-alt="User profile picture of Ram" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCOxAiB0DXSC1-A6vm2mCMjoyWfDwOJHABs26QmrJzaiCCzu5rGNZOSYG6Th0st0tcnVHNTHuXAEXtER5XOnRD3_osyYe5o0TfGfRgUL5L-UIVrkfp3qhQtwbV_KQqBYnWLh_a3t5XecHIWzGuISqjrReb68rBTYdPHE_7gTgHY37fXnfxWYib5Y4VJYhErzotiHOl3-FEES-Vt-2Tm_a-jEyBRBXw1Bb6yYnjnEDW8Lhpl5eCKcwSpvxUdq0-QzNB_1bfxIS2zORkL");'></div>
+</div>
+<div class="flex w-12 items-center justify-end">
+<button class="flex h-12 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-transparent text-text-primary-light dark:text-text-primary-dark min-w-0 p-0">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+</button>
+</div>
+</div>
+<p class="text-text-primary-light dark:text-text-primary-dark text-3xl font-bold leading-tight tracking-tight">Hello, Ram</p>
+</div>
+<!-- Weather Widget -->
+<div class="p-4">
+<div class="flex items-stretch justify-between gap-4 rounded-lg bg-card-light dark:bg-card-dark p-4 shadow-sm">
+<div class="flex flex-[2_2_0px] flex-col gap-1">
+<p class="text-text-primary-light dark:text-text-primary-dark text-lg font-bold leading-tight">Sunny, 28°C</p>
+<p class="text-primary text-sm font-medium leading-normal">Pune, Maharashtra</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal mt-1">Next 3 days: Clear skies</p>
+</div>
+<div class="flex flex-1 items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-accent-yellow">sunny</span>
+</div>
+</div>
+</div>
+<!-- Top Recommendation Section -->
+<h3 class="text-text-primary-light dark:text-text-primary-dark px-4 pb-2 pt-4 text-xl font-bold leading-tight tracking-[-0.015em]">Top Recommendation for You</h3>
+<div class="px-4">
+<div class="flex flex-col items-stretch justify-start rounded-lg bg-card-light dark:bg-card-dark shadow-sm overflow-hidden">
+<div class="aspect-video w-full bg-cover bg-center bg-no-repeat" data-alt="A lush green field of soybean crops under a clear blue sky" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCfliFER-BzjVQ5PMZ80loK4Lf8u_KTGMFNjI52jq0uUoQnF4Eye36ifdzzirUkmBn2AknQTR4QhBr8sSGKtd8RLJe9vPVMXtcBhWO6T98OVAjn5Y_9M7JsCyMKgjPhRGAAImMMGOR-f43Q-5wxmK2exH596gxzNWZMCI_eFh1iZyfxPVok4h66FiR1wjzXRrry3h1djDW0hblcfKzI0M5L48HcGTx5TLAGXp0Ir_glaDbK6pvFRVOvLjpNrUxxuFbadVZnEhLngcUC");'></div>
+<div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-1 p-4">
+<p class="text-primary text-sm font-semibold leading-normal">Sowing Season: July - August</p>
+<p class="text-text-primary-light dark:text-text-primary-dark text-lg font-bold leading-tight tracking-[-0.015em]">Soybean Crop</p>
+<div class="mt-2 flex items-end justify-between gap-3">
+<div class="flex flex-col gap-1">
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-base font-normal leading-normal">High demand and suitable for your soil type.</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-base font-bold leading-normal">Projected ROI: <span class="text-primary">25%</span></p>
+</div>
+<button class="flex h-10 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-4 text-sm font-bold leading-normal text-white">
+<span class="truncate">View Details</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- My Farm & Marketplace Summary -->
+<div class="flex flex-wrap gap-4 p-4">
+<div class="flex min-w-[150px] flex-1 flex-col gap-2 rounded-lg bg-card-light dark:bg-card-dark p-4 shadow-sm">
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-base font-medium leading-normal">Total Land Area</p>
+<p class="text-text-primary-light dark:text-text-primary-dark text-3xl font-bold leading-tight tracking-tight">15 Acres</p>
+</div>
+<div class="flex min-w-[150px] flex-1 flex-col gap-2 rounded-lg bg-card-light dark:bg-card-dark p-4 shadow-sm">
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-base font-medium leading-normal">Active Plots</p>
+<p class="text-text-primary-light dark:text-text-primary-dark text-3xl font-bold leading-tight tracking-tight">4</p>
+</div>
+</div>
+<div class="px-4">
+<div class="rounded-lg bg-card-light dark:bg-card-dark p-4 shadow-sm">
+<p class="text-text-primary-light dark:text-text-primary-dark text-xl font-bold leading-tight tracking-[-0.015em]">My Marketplace Listings</p>
+<div class="mt-4 flex items-center justify-between gap-4">
+<div class="flex flex-col gap-1">
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-base font-medium leading-normal">Active Listings</p>
+<p class="text-text-primary-light dark:text-text-primary-dark text-2xl font-bold leading-tight">8</p>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-base font-medium leading-normal">Recent Orders</p>
+<p class="text-text-primary-light dark:text-text-primary-dark text-2xl font-bold leading-tight">3</p>
+</div>
+<button class="flex h-12 w-12 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-primary text-white">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Links -->
+<h3 class="text-text-primary-light dark:text-text-primary-dark px-4 pb-2 pt-6 text-xl font-bold leading-tight tracking-[-0.015em]">Quick Actions</h3>
+<div class="grid grid-cols-2 gap-4 p-4">
+<a class="flex flex-col items-center justify-center gap-2 rounded-lg bg-card-light dark:bg-card-dark p-4 text-center shadow-sm" href="#">
+<div class="flex size-12 items-center justify-center rounded-full bg-primary/20 text-primary">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<p class="text-text-primary-light dark:text-text-primary-dark text-sm font-semibold">Market Prices</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-2 rounded-lg bg-card-light dark:bg-card-dark p-4 text-center shadow-sm" href="#">
+<div class="flex size-12 items-center justify-center rounded-full bg-accent-blue/20 text-accent-blue">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<p class="text-text-primary-light dark:text-text-primary-dark text-sm font-semibold">Crop Advisory</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-2 rounded-lg bg-card-light dark:bg-card-dark p-4 text-center shadow-sm" href="#">
+<div class="flex size-12 items-center justify-center rounded-full bg-accent-yellow/20 text-accent-yellow">
+<span class="material-symbols-outlined">forum</span>
+</div>
+<p class="text-text-primary-light dark:text-text-primary-dark text-sm font-semibold">Community</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-2 rounded-lg bg-card-light dark:bg-card-dark p-4 text-center shadow-sm" href="#">
+<div class="flex size-12 items-center justify-center rounded-full bg-red-500/20 text-red-500">
+<span class="material-symbols-outlined">bug_report</span>
+</div>
+<p class="text-text-primary-light dark:text-text-primary-dark text-sm font-semibold">Pest Alert</p>
+</a>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-20 border-t border-gray-200/50 bg-card-light/80 backdrop-blur-lg dark:border-gray-700/50 dark:bg-card-dark/80">
+<div class="mx-auto grid h-16 max-w-lg grid-cols-4 px-4">
+<a class="group inline-flex flex-col items-center justify-center text-center text-primary" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-xs font-bold">Dashboard</span>
+</a>
+<a class="group inline-flex flex-col items-center justify-center text-center text-text-secondary-light hover:text-primary dark:text-text-secondary-dark dark:hover:text-primary" href="#">
+<span class="material-symbols-outlined">grass</span>
+<span class="text-xs font-medium">My Crops</span>
+</a>
+<a class="group inline-flex flex-col items-center justify-center text-center text-text-secondary-light hover:text-primary dark:text-text-secondary-dark dark:hover:text-primary" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="text-xs font-medium">Marketplace</span>
+</a>
+<a class="group inline-flex flex-col items-center justify-center text-center text-text-secondary-light hover:text-primary dark:text-text-secondary-dark dark:hover:text-primary" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-xs font-medium">Profile</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

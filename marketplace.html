@@ -52,11 +52,37 @@
   </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
 <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Sidebar -->
+<div id="sidebar" class="fixed left-0 top-0 h-screen w-64 bg-surface-light dark:bg-surface-dark shadow-lg transform -translate-x-full transition-transform duration-300 z-30 flex flex-col">
+<div class="flex items-center justify-between p-4 border-b border-border-light dark:border-border-dark">
+<h3 class="text-lg font-bold text-text-light dark:text-text-dark">Menu</h3>
+<button onclick="toggleSidebar()" class="text-text-light dark:text-text-dark">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex-1 p-4 space-y-2">
+<a href="home.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-light dark:text-text-dark hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">home</span>
+<span>Dashboard</span>
+</a>
+<a href="Farmer_order_manag.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-light dark:text-text-dark hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">grass</span>
+<span>My Crops</span>
+</a>
+<a href="product_listing.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-light dark:text-text-dark hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span>Add product</span>
+</a>
+<
+</nav>
+</div>
+<!-- Sidebar Overlay -->
+<div id="sidebarOverlay" class="fixed inset-0 bg-black/50 hidden z-20" onclick="toggleSidebar()"></div>
 <div class="sticky top-0 z-10 flex flex-col bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
 <!-- TopAppBar -->
 <div class="flex items-center p-4 pb-2 justify-between">
-<button onclick="history.back()" class="text-text-light dark:text-text-dark flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-<span class="material-symbols-outlined">arrow_back</span>
+<button onclick="toggleSidebar()" class="text-text-light dark:text-text-dark flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">menu</span>
 </button>
 <h2 class="text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center text-text-light dark:text-text-dark">Marketplace</h2>
 <div class="flex w-12 items-center justify-end">
@@ -146,6 +172,27 @@
 </div>
 </div>
 </main>
-<!-- BottomNavBar -->
+ <!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-20 border-t border-gray-200/50 bg-card-light/80 backdrop-blur-lg dark:border-gray-700/50 dark:bg-card-dark/80">
+<div class="mx-auto grid h-16 max-w-lg grid-cols-2 px-4">
+<a class="group inline-flex flex-col items-center justify-center text-center text-primary" href="home.html">
+<span class="material-symbols-outlined">home</span>
+<span class="text-xs font-bold">Dashboard</span>
+</a>
+<a class="group inline-flex flex-col items-center justify-center text-center text-text-secondary-light hover:text-primary dark:text-text-secondary-dark dark:hover:text-primary" href="buyer_order_tracking.html">
+<span class="material-symbols-outlined">grass</span>
+<span class="text-xs font-medium">My Orders</span>
+</a>
+
 </div>
+</nav>
+</div>
+<script>
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  sidebar.classList.toggle('-translate-x-full');
+  overlay.classList.toggle('hidden');
+}
+</script>
 </body></html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgriSetu Marketplace</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#53d22d",
+              "background-light": "#f6f8f6",
+              "background-dark": "#152012",
+              "text-light": "#152012",
+              "text-dark": "#f6f8f6",
+              "surface-light": "#ffffff",
+              "surface-dark": "#1e2a1b",
+              "muted-light": "#6b7280",
+              "muted-dark": "#9ca3af",
+              "border-light": "#e5e7eb",
+              "border-dark": "#374151"
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="sticky top-0 z-10 flex flex-col bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<!-- TopAppBar -->
+<div class="flex items-center p-4 pb-2 justify-between">
+<button onclick="history.back()" class="text-text-light dark:text-text-dark flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center text-text-light dark:text-text-dark">Marketplace</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-transparent text-text-light dark:text-text-dark gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0 relative">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+<div class="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">2</div>
+</button>
+</div>
+</div>
+<!-- SearchBar -->
+<div class="px-4 py-3">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark">
+<div class="text-muted-light dark:text-muted-dark flex items-center justify-center pl-4">
+<span class="material-symbols-outlined text-2xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden text-text-light dark:text-text-dark focus:outline-0 focus:ring-0 border-none bg-transparent h-full placeholder:text-muted-light dark:placeholder:text-muted-dark px-2 text-base font-normal leading-normal" placeholder="Search by crop, farmer, or location" value=""/>
+</div>
+</label>
+</div>
+<!-- Chips -->
+<div class="flex gap-3 px-4 pb-4 overflow-x-auto">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-surface-light dark:bg-surface-dark pl-4 pr-3 border border-border-light dark:border-border-dark">
+<p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">Category</p>
+<span class="material-symbols-outlined text-muted-light dark:text-muted-dark text-xl">expand_more</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-surface-light dark:bg-surface-dark pl-4 pr-3 border border-border-light dark:border-border-dark">
+<p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">Price</p>
+<span class="material-symbols-outlined text-muted-light dark:text-muted-dark text-xl">expand_more</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary/20 text-primary pl-4 pr-3 border border-primary/30">
+<p class="text-primary text-sm font-medium leading-normal">Sort By: Popular</p>
+<span class="material-symbols-outlined text-primary text-xl">expand_more</span>
+</button>
+</div>
+</div>
+<main class="flex-grow">
+<!-- ImageGrid -->
+<div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-4 p-4">
+<div class="flex flex-col gap-3 rounded-xl bg-surface-light dark:bg-surface-dark overflow-hidden border border-border-light dark:border-border-dark cursor-pointer transition-shadow hover:shadow-lg">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover" data-alt="A vibrant pile of fresh, red organic tomatoes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCNy0_3mLgQu9AGNExh_JtaQIBmjTomO_nE9EPxqhSe-MbttsKmZnvNfSO-_CvUHPZ-ES9mv8fTijCYi8gRJhE_x-FHIgOYrm48LubmRLYTqMtvhDtSickHr9dBtznPlKlvfQSnSxqvn_m9wOj3zXgZ1l2BoJE94a2QdH9j55CqN1yFTuzAOJ1_YB8tZclad_vig30Ss5Tt1CFeJmIstkbYmiZqmka96TZDVLIuRI0oN5JcvhC59ImfvlFyG0SsYFt_glVraI28wbNA");'></div>
+<div class="p-3 pt-0">
+<p class="text-base font-semibold leading-normal text-text-light dark:text-text-dark">Organic Tomatoes</p>
+<p class="text-base font-bold leading-normal text-primary mt-1">$1.50/kg</p>
+<p class="text-xs font-normal leading-normal text-muted-light dark:text-muted-dark">Min. 50kg</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-xl bg-surface-light dark:bg-surface-dark overflow-hidden border border-border-light dark:border-border-dark cursor-pointer transition-shadow hover:shadow-lg">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover" data-alt="A bunch of bright orange fresh carrots with green tops" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHC70KOiEzVqF_FBH9-yqVdgktXht0uUpHTO_GHeTGoT4yaamS4LUrQKnhFaP7giECArwOANDlgnW-NPEVn4BBiBTHeIUxpI7HyzEoCzxvaUj1Rk6gQCKCETns35vUarQw096LYc4x1c6JZPwVPWMXJYECnp95bSCoOI-JIrvRQrZ082Jk2ykJIqxVgxcsd3dx9TuwjgPM8WTSwblu3JLI6WwLCGa5OkKrH_fLldV3FG8jonY5x9PLKUzvBmILOcpEcimE_oNnuAy9");'></div>
+<div class="p-3 pt-0">
+<p class="text-base font-semibold leading-normal text-text-light dark:text-text-dark">Fresh Carrots</p>
+<p class="text-base font-bold leading-normal text-primary mt-1">$0.80/kg</p>
+<p class="text-xs font-normal leading-normal text-muted-light dark:text-muted-dark">Min. 100kg</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-xl bg-surface-light dark:bg-surface-dark overflow-hidden border border-border-light dark:border-border-dark cursor-pointer transition-shadow hover:shadow-lg">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover" data-alt="Close-up of golden corn cobs with yellow kernels" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB4ukvK6JVSxv97AWfz01lspEfDd1H5gdlmPtW2OfJ9JGAd7oLVAw2l-VfjDrKm78H2aTC8DXiIAdHwxeXNuut1g3uPqE0mbMDrGNVrXQi1SJHDpGHqajkPg1vh2ib_V_sxvfh4znB5wIRFF8Eg6_KnF7hqD8Bz4LEFOg4ZGucr6uIggEYoSrohS-uTz0MkkIm5NfUVO1REwrEIHiWADCNaoZgt02zJlFwXfmgnT0eazkQ_umZIiJd_bBWms4a5S2DfmLDQZ4b2BI-1");'></div>
+<div class="p-3 pt-0">
+<p class="text-base font-semibold leading-normal text-text-light dark:text-text-dark">Golden Corn</p>
+<p class="text-base font-bold leading-normal text-primary mt-1">$1.20/kg</p>
+<p class="text-xs font-normal leading-normal text-muted-light dark:text-muted-dark">Min. 200kg</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-xl bg-surface-light dark:bg-surface-dark overflow-hidden border border-border-light dark:border-border-dark cursor-pointer transition-shadow hover:shadow-lg">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover" data-alt="Shiny green bell peppers on display" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACsmPtGCOH26miuh7tOb2kCeaexshridE4xsPB03dGw3C8XalQYOxedHCdq_3Gq11aT5uVRSvCcirsuCEmpTI0aO7vC3aJz3wwdmY3bmFPgyyLE1WIGmsR3Eu9hmjiDK_A8PxC0EmSjkWbM3Y5TptkKDqDi7xJd_C-_z0HuJ3Wmg12jh5IwJ9CcWBc-ryA9fHgxhAEryO-GONxzsalQwUPVNEHYHFR0GyQO8qb40fXzQLUBAKJ7lQIMSZQO-DH2jld6RnnECZSXfqc");'></div>
+<div class="p-3 pt-0">
+<p class="text-base font-semibold leading-normal text-text-light dark:text-text-dark">Green Bell Peppers</p>
+<p class="text-base font-bold leading-normal text-primary mt-1">$2.00/kg</p>
+<p class="text-xs font-normal leading-normal text-muted-light dark:text-muted-dark">Min. 40kg</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-xl bg-surface-light dark:bg-surface-dark overflow-hidden border border-border-light dark:border-border-dark cursor-pointer transition-shadow hover:shadow-lg">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover" data-alt="A basket full of fresh, organic potatoes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAo81CFfues_x96aU_5Tw6pgX6Ojq8amtecRjkhkpfTBml4IrwOzd4bf_ETfudETJiyDbevjjHwvw-_6ce9T0OSTjUMhjw_OGYDGhKIc3QT0WpeadtDn_Z_EOCk7KPe2leUaq8t9dFTjQjrHnE9Ae3uggsmI9NrJbEeUvHuCYz5HWAS2UyJNaLyAoWZWZ3kt6G4ygyTx7mhEkq-gdarlwg8-HsDAn88wNFKlrvR3e0PruSHTEwv3zHY0uhyIwoPi0b2uBQ1jjNSVsJv");'></div>
+<div class="p-3 pt-0">
+<p class="text-base font-semibold leading-normal text-text-light dark:text-text-dark">Himalayan Potatoes</p>
+<p class="text-base font-bold leading-normal text-primary mt-1">$0.90/kg</p>
+<p class="text-xs font-normal leading-normal text-muted-light dark:text-muted-dark">Min. 150kg</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-xl bg-surface-light dark:bg-surface-dark overflow-hidden border border-border-light dark:border-border-dark cursor-pointer transition-shadow hover:shadow-lg">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover" data-alt="Close-up of crisp, red apples on a tree" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCPegpDAW_eiYiXVe00aC_sgYpY6rnSQfoJDTmMT0ImNf1F488j2YWnwEbJe6efv3t2piKOQBHHiDvlRBeRDNYU9nkUvYaseQRv_H-AoWV4_plrkIspLWSLIQZfAgZjMTnq-vqxShQ-PDTbJHhbZo_UVpmIF2dMEc-wQ04XLQU9F8Pg2qp4t2JIgQ9A--8PM8IDizLK23swXc6p3fJn3j8o9j3qY3-a1Zzoky4IqhMn2eti6KZjsotuAMSnd-CgxlZpqhWEJi0F_co2");'></div>
+<div class="p-3 pt-0">
+<p class="text-base font-semibold leading-normal text-text-light dark:text-text-dark">Royal Gala Apples</p>
+<p class="text-base font-bold leading-normal text-primary mt-1">$2.50/kg</p>
+<p class="text-xs font-normal leading-normal text-muted-light dark:text-muted-dark">Min. 80kg</p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+</div>
+</body></html>

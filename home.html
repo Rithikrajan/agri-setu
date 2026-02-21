@@ -7,6 +7,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -38,20 +39,7 @@
         },
       }
     </script>
-<style>
-      .material-symbols-outlined {
-        font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24
-      }
-    </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
+  <script type="module" src="scripts/home/weather_card.js"></script>
   </head>
 <body class="bg-background-light dark:bg-background-dark font-display">
 <div class="relative flex min-h-screen w-full flex-col">
@@ -66,12 +54,11 @@
 <div class="p-4">
 <div class="flex items-stretch justify-between gap-4 rounded-lg bg-card-light dark:bg-card-dark p-4 shadow-sm">
 <div class="flex flex-[2_2_0px] flex-col gap-1">
-<p class="text-text-primary-light dark:text-text-primary-dark text-lg font-bold leading-tight">Sunny, 28°C</p>
-<p class="text-primary text-sm font-medium leading-normal">Pune, Maharashtra</p>
-<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal mt-1">Next 3 days: Clear skies</p>
+<input type="text" id="city-input" placeholder="Enter city name" class="w-full text-text-primary-light dark:text-text-primary-dark text-lg font-bold leading-tight bg-transparent border-none outline-none placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark">
+<div id="weather-display" class="font-display text-text-primary-light dark:text-text-primary-dark text-lg font-bold leading-tight mt-1"></div>
 </div>
 <div class="flex flex-1 items-center justify-center">
-<span class="material-symbols-outlined text-6xl text-accent-yellow">sunny</span>
+<span id="weather-icon" class="material-symbols-outlined text-6xl text-accent-yellow">sunny</span>
 </div>
 </div>
 </div>
@@ -115,4 +102,16 @@
 
 </nav>
 </div>
+<script type="module" src="scripts/home/weather_card.js"></script>
+<script type="module">
+import { weatherCard } from './scripts/home/weather_card.js';
+
+const cityInput = document.getElementById('city-input');
+cityInput.addEventListener('input', () => {
+  const city = cityInput.value.trim();
+  if (city) {
+    weatherCard(city);
+  }
+});
+</script>
 </body></html>

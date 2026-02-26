@@ -1,8 +1,20 @@
+export const getProduct = (productId) =>
+{
+  let matchingProduct;
 
 
+        products.forEach((product) =>
+        {
+            if(product.id === productId)
+            {
+                matchingProduct = product;
+            }
+
+        });
+  return matchingProduct;
 
 
-
+}
 
 
 
@@ -55,4 +67,7 @@ export const products = [
     { "id": '24', "name": "Green Gram", "image": "images/products/greengram.jpg", "price": 5400, "keywords": ["green gram", "pulse", "protein"] },
     
     { "id": '25', "name": "Black Gram", "image": "images/products/blackgram.jpg", "price": 5600, "keywords": ["black gram", "urad dal", "pulse"] }
-  ]
+  ];
+
+// helper to look up a product by id
+

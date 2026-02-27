@@ -1,4 +1,4 @@
-import { cart, removeFromCart, addtoCart } from '../../data/cart.js';
+import { cart, removeFromCart, addtoCart, removeOneItem } from '../../data/cart.js';
 import { products } from '../../data/products.js';
 import { formatCurrency } from '../utils/money.js';
 import { renderPaymentSummary } from './paymentSummary.js';
@@ -117,7 +117,8 @@ export function renderOrderSummary() {
     .forEach((button) => {
       button.addEventListener('click', () => {
         const productId = button.dataset.productId;
-        removeFromCart(productId);
+        removeOneItem(productId);
+
 
         renderOrderSummary();
         // re-calculate totals after deleting an item

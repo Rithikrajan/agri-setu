@@ -1,32 +1,28 @@
-import {cart, removeFromCart} from '../../data/cart.js';
-import {products} from '../../data/products.js';
-import {formatCurrency} from '../utils/money.js';
+import { cart, removeFromCart, addtoCart } from '../../data/cart.js';
+import { products } from '../../data/products.js';
+import { formatCurrency } from '../utils/money.js';
 import { renderPaymentSummary } from './paymentSummary.js';
 
 
-export function renderOrderSummary()
-{
-let cartSummaryHTML = '';
+export function renderOrderSummary() {
+  let cartSummaryHTML = '';
 
-cart.forEach((cartItem) =>
-{
-  const productId = cartItem.productId;
+  cart.forEach((cartItem) => {
+    const productId = cartItem.productId;
 
-  let matchingProduct;
+    let matchingProduct;
 
-  products.forEach((product) =>
-  {
-    if(product.id === productId)
-    {
-      matchingProduct = product;
+    products.forEach((product) => {
+      if (product.id === productId) {
+        matchingProduct = product;
+      }
+    });
+
+    if (!matchingProduct) {
+      return; // Skip this cart item if no matching product found
     }
-  });
 
-  if (!matchingProduct) {
-    return; // Skip this cart item if no matching product found
-  }
-
-  cartSummaryHTML += `
+    cartSummaryHTML += `
                 <div
                   class="p-6 flex flex-col md:flex-row gap-6 items-start md:items-center js-cart-item-container-${matchingProduct.id} "
                 >
@@ -58,7 +54,7 @@ cart.forEach((cartItem) =>
                       class="flex items-center gap-1 rounded-lg border border-slate-200 dark:border-slate-700 p-1"
                     >
                       <button
-                        class="flex h-8 w-8 items-center justify-center rounded-md bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors"
+                        class="flex h-8 w-8 items-center justify-center rounded-md bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors js-remove-button"data-product-id = ${matchingProduct.id}
                       >
                         <span class="material-symbols-outlined text-sm"
                           >remove</span
@@ -70,7 +66,7 @@ cart.forEach((cartItem) =>
                         value="${cartItem.quantity}"
                       />
                       <button
-                        class="flex h-8 w-8 items-center justify-center rounded-md bg-primary/10 hover:bg-primary/20 text-primary transition-colors"
+                        class="flex h-8 w-8 items-center justify-center rounded-md bg-primary/10 hover:bg-primary/20 text-primary transition-colors js-add-button" data-product-id = ${matchingProduct.id}
                       >
                         <span class="material-symbols-outlined text-sm"
                           >add</span
@@ -87,7 +83,7 @@ cart.forEach((cartItem) =>
                       <p
                         class="text-lg font-bold text-slate-900 dark:text-white"
                       >
-                        ₹${(formatCurrency(matchingProduct.price))*cartItem.quantity}
+                        ₹${(formatCurrency(matchingProduct.price)) * cartItem.quantity}
                       </p>
                     </div>
                     <button
@@ -97,27 +93,53 @@ cart.forEach((cartItem) =>
                     </button>
                   </div>
                 </div>`;
-});
+  });
 
-document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML;
+  document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML;
 
 
-document.querySelectorAll('.js-delete-button')
-.forEach((button) => 
-{
-  button.addEventListener('click', () =>
-    {
-      const productId = button.dataset.productId;
-      removeFromCart(productId);
-      
-      const container = document.querySelector(`.js-cart-item-container-${productId}`);
-      container.remove();
-      
-      // re-calculate totals after deleting an item
-      renderPaymentSummary();
+  document.querySelectorAll('.js-delete-button')
+    .forEach((button) => {
+      button.addEventListener('click', () => {
+        const productId = button.dataset.productId;
+        removeFromCart(productId);
 
+        const container = document.querySelector(`.js-cart-item-container-${productId}`);
+        container.remove();
+
+        // re-calculate totals after deleting an item
+        renderPaymentSummary();
+
+      });
     });
-});
+
+  document.querySelectorAll('.js-remove-button')
+    .forEach((button) => {
+      button.addEventListener('click', () => {
+        const productId = button.dataset.productId;
+        removeFromCart(productId);
+
+        renderOrderSummary();
+        // re-calculate totals after deleting an item
+        renderPaymentSummary();
+
+      });
+    });
+
+
+  document.querySelectorAll('.js-add-button')
+    .forEach((button) => {
+      button.addEventListener('click', () => {
+        const productId = button.dataset.productId;
+        addtoCart(productId);
+
+        renderOrderSummary();
+        // re-calculate totals after deleting an item
+        renderPaymentSummary();
+
+      });
+    });
+
 };
 renderOrderSummary();
 // also render the payment summary whenever the order summary is generated or updated

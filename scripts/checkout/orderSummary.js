@@ -83,7 +83,7 @@ export function renderOrderSummary() {
                       <p
                         class="text-lg font-bold text-slate-900 dark:text-white"
                       >
-                        ₹${(formatCurrency(matchingProduct.price)) * cartItem.quantity}
+                        ₹${formatCurrency(matchingProduct.price * cartItem.quantity)}
                       </p>
                     </div>
                     <button

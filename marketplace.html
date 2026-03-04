@@ -8,7 +8,9 @@
   <title>AgriSetu Marketplace</title>
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -18,25 +20,36 @@
       theme: {
         extend: {
           colors: {
-            primary: "#27AE60",
-            "background-light": "#f6f8f6",
-            "background-dark": "#152012",
-            "text-light": "#152012",
-            "text-dark": "#f6f8f6",
+            primary: "#10b981",
+            "primary-dark": "#059669",
+            "background-light": "#f8fafc",
+            "background-dark": "#0f172a",
+            "text-light": "#0f172a",
+            "text-dark": "#f8fafc",
+            "text-primary-light": "#0f172a",
+            "text-primary-dark": "#f8fafc",
+            "text-secondary-light": "#64748b",
+            "text-secondary-dark": "#94a3b8",
+            "muted-light": "#64748b",
+            "muted-dark": "#94a3b8",
+            "card-light": "#ffffff",
+            "card-dark": "#1e293b",
             "surface-light": "#ffffff",
-            "surface-dark": "#1e2a1b",
-            "muted-light": "#6b7280",
-            "muted-dark": "#9ca3af",
-            "border-light": "#e5e7eb",
-            "border-dark": "#374151",
+            "surface-dark": "#1e293b",
+            "accent-yellow": "#f59e0b",
+            "accent-blue": "#3b82f6",
+            "border-light": "#e2e8f0",
+            "border-dark": "#334155",
           },
           fontFamily: {
-            display: ["Manrope", "sans-serif"],
+            display: ["Outfit", "sans-serif"],
+            body: ["Inter", "sans-serif"],
           },
           borderRadius: {
-            DEFAULT: "0.25rem",
-            lg: "0.5rem",
-            xl: "0.75rem",
+            DEFAULT: "0.5rem",
+            lg: "0.75rem",
+            xl: "1rem",
+            "2xl": "1.5rem",
             full: "9999px",
           },
         },
@@ -45,11 +58,11 @@
   </script>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<body class="bg-background-light dark:bg-background-dark font-body text-text-light dark:text-text-dark">
   <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
     <!-- Sidebar -->
     <div id="sidebar"
-      class="fixed left-0 top-0 h-screen w-64 bg-surface-light dark:bg-surface-dark shadow-lg transform -translate-x-full transition-transform duration-300 z-30 flex flex-col">
+      class="fixed left-0 top-0 h-screen w-64 bg-surface-light dark:bg-surface-dark shadow-lg transform -translate-x-full transition-transform duration-300 z-[100] flex flex-col">
       <div class="flex items-center justify-between p-4 border-b border-border-light dark:border-border-dark">
         <h3 class="text-lg font-bold text-text-light dark:text-text-dark">
           Menu
@@ -77,8 +90,8 @@
       </nav>
     </div>
     <!-- Sidebar Overlay -->
-    <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 hidden z-20" onclick="toggleSidebar()"></div>
-    <div class="sticky top-0 z-10 flex flex-col bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 hidden z-[90]" onclick="toggleSidebar()"></div>
+    <div class="sticky top-0 z-40 flex flex-col glass border-b border-border-light dark:border-border-dark">
       <!-- TopAppBar -->
       <div class="flex items-center p-4 pb-2 justify-between">
         <button onclick="toggleSidebar()"
@@ -120,7 +133,7 @@
       <div class="flex flex-wrap gap-3 px-4 pb-4 relative z-50">
         <div class="relative shrink-0 js-dropdown" data-filter-type="category" data-selected-value="">
           <button
-            class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-surface-light dark:bg-surface-dark pl-4 pr-3 border border-border-light dark:border-border-dark js-dropdown-button">
+            class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-surface-light dark:bg-surface-dark pl-4 pr-3 border border-border-light dark:border-border-dark js-dropdown-button hover-lift transition-transform">
             <p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal js-dropdown-label">Category
             </p>
             <span
@@ -147,7 +160,7 @@
 
         <div class="relative shrink-0 js-dropdown" data-filter-type="price" data-selected-value="">
           <button
-            class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-surface-light dark:bg-surface-dark pl-4 pr-3 border border-border-light dark:border-border-dark js-dropdown-button">
+            class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-surface-light dark:bg-surface-dark pl-4 pr-3 border border-border-light dark:border-border-dark js-dropdown-button hover-lift transition-transform">
             <p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal js-dropdown-label">Price
             </p>
             <span
@@ -204,17 +217,17 @@
       <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-4 p-4 js-products-grid"></div>
     </main>
     <!-- Bottom Navigation Bar -->
-    <nav
-      class="fixed bottom-0 left-0 right-0 z-20 border-t border-gray-200/50 bg-card-light/80 backdrop-blur-lg dark:border-gray-700/50 dark:bg-card-dark/80">
+    <nav class="fixed bottom-0 left-0 right-0 z-50 glass border-t border-border-light dark:border-border-dark">
       <div class="mx-auto grid h-16 max-w-lg grid-cols-2 px-4">
-        <a class="group inline-flex flex-col items-center justify-center text-center text-primary" href="home.html">
+        <a class="group inline-flex flex-col items-center justify-center text-center text-primary hover-scale transition-transform"
+          href="home.html">
           <span class="material-symbols-outlined">home</span>
-          <span class="text-xs font-bold">Dashboard</span>
+          <span class="text-xs font-bold mt-1">Dashboard</span>
         </a>
-        <a class="group inline-flex flex-col items-center justify-center text-center text-text-secondary-light hover:text-primary dark:text-text-secondary-dark dark:hover:text-primary"
+        <a class="group inline-flex flex-col items-center justify-center text-center text-text-secondary-light hover:text-primary dark:text-text-secondary-dark dark:hover:text-primary hover-scale transition-transform"
           href="buyer_order_tracking.html">
           <span class="material-symbols-outlined">grass</span>
-          <span class="text-xs font-medium">Purchased Orders</span>
+          <span class="text-xs font-medium mt-1">Purchased Orders</span>
         </a>
       </div>
     </nav>

@@ -42,40 +42,25 @@ export function renderOrderSummary() {
                     >
                       Bulk Packaging: 50kg Bag
                     </p>
-                    <div class="mt-2 text-primary font-bold">
-                      ₹${formatCurrency(matchingProduct.price)}
-                      <span class="text-xs text-slate-400 font-normal"
-                        >/ kg</span
-                      >
+                    <div class="mt-2 text-primary font-bold flex items-center gap-4">
+                      <span>₹${formatCurrency(matchingProduct.price)}<span class="text-xs text-slate-400 font-normal">/ kg</span></span>
+                      
+                      <div class="flex items-center gap-2">
+                        <label class="text-sm text-slate-500">Qty:</label>
+                        <div class="flex items-center gap-1 rounded-lg border border-slate-200 dark:border-slate-700 p-1">
+                          <input
+                            class="w-16 border-none bg-transparent text-center font-bold text-sm focus:ring-0 js-quantity-input"
+                            type="number"
+                            min="1"
+                            data-product-id="${matchingProduct.id}"
+                            value="${cartItem.quantity}"
+                          />
+                          <span class="px-2 text-xs font-bold text-slate-400">kg</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="flex items-center gap-4">
-                    <div
-                      class="flex items-center gap-1 rounded-lg border border-slate-200 dark:border-slate-700 p-1"
-                    >
-                      <button
-                        class="flex h-8 w-8 items-center justify-center rounded-md bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors js-remove-button"data-product-id = ${matchingProduct.id}
-                      >
-                        <span class="material-symbols-outlined text-sm"
-                          >remove</span
-                        >
-                      </button>
-                      <input
-                        class="w-12 border-none bg-transparent text-center font-bold text-sm focus:ring-0"
-                        type="number"
-                        value="${cartItem.quantity}"
-                      />
-                      <button
-                        class="flex h-8 w-8 items-center justify-center rounded-md bg-primary/10 hover:bg-primary/20 text-primary transition-colors js-add-button" data-product-id = ${matchingProduct.id}
-                      >
-                        <span class="material-symbols-outlined text-sm"
-                          >add</span
-                        >
-                      </button>
-                      <span class="px-2 text-xs font-bold text-slate-400"
-                        >kg</span
-                      >
-                    </div>
                     <div class="text-right min-w-[120px]">
                       <p class="text-[10px] text-slate-400 uppercase font-bold">
                         Subtotal
@@ -105,7 +90,7 @@ export function renderOrderSummary() {
         removeFromCart(productId);
 
         const container = document.querySelector(`.js-cart-item-container-${productId}`);
-        container.remove();
+        if (container) container.remove();
 
         // re-calculate totals after deleting an item
         renderPaymentSummary();
@@ -113,31 +98,34 @@ export function renderOrderSummary() {
       });
     });
 
-  document.querySelectorAll('.js-remove-button')
-    .forEach((button) => {
-      button.addEventListener('click', () => {
-        const productId = button.dataset.productId;
-        removeOneItem(productId);
+  document.querySelectorAll('.js-quantity-input')
+    .forEach((input) => {
+      input.addEventListener('change', (e) => {
+        const productId = input.dataset.productId;
+        const newQuantity = Number(e.target.value);
 
+        if (newQuantity > 0) {
+          // Update cart item quantity directly
+          let matchingItem;
+          cart.forEach((cartItem) => {
+            if (cartItem.productId === productId) {
+              matchingItem = cartItem;
+            }
+          });
 
-        renderOrderSummary();
-        // re-calculate totals after deleting an item
-        renderPaymentSummary();
+          if (matchingItem) {
+            matchingItem.quantity = newQuantity;
+            // Ideally we'd call saveToStorage() here if exported from cart.js
+            localStorage.setItem('cart', JSON.stringify(cart));
 
-      });
-    });
-
-
-  document.querySelectorAll('.js-add-button')
-    .forEach((button) => {
-      button.addEventListener('click', () => {
-        const productId = button.dataset.productId;
-        addtoCart(productId);
-
-        renderOrderSummary();
-        // re-calculate totals after deleting an item
-        renderPaymentSummary();
-
+            // Re-render
+            renderOrderSummary();
+            renderPaymentSummary();
+          }
+        } else {
+          // Reset to 1 if user tries to enter 0 or negative
+          e.target.value = 1;
+        }
       });
     });
 

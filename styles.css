@@ -38,17 +38,17 @@ h1, h2, h3, h4, h5, h6, .font-display {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #A2CB8B;
   border-radius: 4px;
 }
 .dark ::-webkit-scrollbar-thumb {
-  background: #475569;
+  background: #4a5d4a;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #84B179;
 }
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: #5c735c;
 }
 
 /* Glassmorphism Utilities */
@@ -83,12 +83,12 @@ h1, h2, h3, h4, h5, h6, .font-display {
 }
 
 .btn-primary-gradient {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #84B179 0%, #A2CB8B 100%);
   transition: all 0.3s ease;
 }
 .btn-primary-gradient:hover {
-  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
-  box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.39);
+  background: linear-gradient(135deg, #A2CB8B 0%, #84B179 100%);
+  box-shadow: 0 4px 14px 0 rgba(132, 177, 121, 0.4);
 }
 
 /* Base Inputs */
